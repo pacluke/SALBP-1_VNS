@@ -1,10 +1,6 @@
 
-"""
-instance_parser.jl
-
-@Author: Lucas Flores (https://github.com/pacluke) and Isadora Oliveira ()
-
-"""
+# instance_parser.jl
+# "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira"
 
 # this will make sense when we actually have a data structure
 # include("data_structure.jl")

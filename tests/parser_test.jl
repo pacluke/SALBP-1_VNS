@@ -1,11 +1,6 @@
 
-"""
-instance_parser.jl
-
-@Author: Lucas Flores (https://github.com/pacluke) and Isadora Oliveira ()
-
-"""
-
+# instance_parser.jl
+# "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira"
 
 include("../vns/instance_parser.jl")
 
