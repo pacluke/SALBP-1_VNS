@@ -2,12 +2,33 @@
 # instance_parser.jl
 # "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira"
 
-# this will make sense when we actually have a data structure
-# include("data_structure.jl")
+include("./data_structure.jl")
 
-function read_instance_file(filename::String)
+function print_matrix(filename::String, inst::Instance)
 
-    file = open("../instances/$(filename)")
+	# println("Instance name: $(filename)")
+	# println("This instance has $(num_of_taks) tasks.")
+	# foreach(x->println("The task $(task+=1) takes $(x) time units."), task_times)
+	# foreach(x->println("The precedence $(precedences+=1) is $(x)."), precedence)
+	# println("\n")
+
+end
+
+function set_instance(num_tasks::Int64, max_cycle::Int64, time::Array{Int64, 1}, stats::Array{Tuple{Int64, Int64}, 1})
+
+	adj_matrix::Array{Int64, 2} = zeros(Int64, num_tasks, num_tasks)
+
+	for tup in stats
+		adj_matrix[tup[1], tup[2]] = 1
+	end
+
+	println(adj_matrix)
+
+end
+
+function read_instance_file(filename::String, max_cycle::Int64)
+
+	file = open("../instances/$(filename)")
 	file_lines = readlines(file)
 	close(file)
 
@@ -18,15 +39,13 @@ function read_instance_file(filename::String)
 	task = 0
 	precedences = 0
 
-	println("Instance name: $(filename)")
-	println("This instance has $(num_of_taks) tasks.")
-	foreach(x->println("The task $(task+=1) takes $(x) time units."), task_times)
-	foreach(x->println("The precedence $(precedences+=1) is $(x)."), precedence)
+	set_instance(num_of_taks, max_cycle, task_times, precedence)
 
-	println("\n")
+	# println("Instance name: $(filename)")
+	# println("This instance has $(num_of_taks) tasks.")
+	# foreach(x->println("The task $(task+=1) takes $(x) time units."), task_times)
+	# foreach(x->println("The precedence $(precedences+=1) is $(x)."), precedence)
+
+	# println("\n")
 
 end
-
-# read_instance_file("MERTENS.IN2")
-# read_instance_file("MITCHELL.IN2")
-# read_instance_file("WEE-MAG.IN2")
