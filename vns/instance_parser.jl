@@ -9,12 +9,15 @@ function print_instance(filename::String, inst::Instance)
 	task = 0
 	precedences = 0
 
-	println("\n")
+	print("\n")
 	println("Instance name: $(filename)")
+	print("\n")
 	println("This instance has $(inst.number_of_tasks) tasks.")
+	print("\n")
 	foreach(x->println("The task $(task+=1) takes $(x) time unit(s)."), inst.tasks_time)
+	print("\n")
 	foreach(x->println("The precedence $(precedences+=1) is $(x)."), inst.precedences)
-	println("\n")
+	print("\n")
 
 end
 

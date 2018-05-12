@@ -11,6 +11,5 @@ struct Instance
 end
 
 struct Solution
-	cicle_time :: Int64
-	used_stations :: Array{Int64, 1}
+	stations :: Array{Array{Int64, 1}, 1}
 end
