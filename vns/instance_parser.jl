@@ -4,17 +4,21 @@
 
 include("./data_structure.jl")
 
-function print_matrix(filename::String, inst::Instance)
+function print_instance(filename::String, inst::Instance)
 
-	# println("Instance name: $(filename)")
-	# println("This instance has $(num_of_taks) tasks.")
-	# foreach(x->println("The task $(task+=1) takes $(x) time units."), task_times)
-	# foreach(x->println("The precedence $(precedences+=1) is $(x)."), precedence)
-	# println("\n")
+	task = 0
+	precedences = 0
+
+	println("\n")
+	println("Instance name: $(filename)")
+	println("This instance has $(inst.number_of_tasks) tasks.")
+	foreach(x->println("The task $(task+=1) takes $(x) time unit(s)."), inst.tasks_time)
+	foreach(x->println("The precedence $(precedences+=1) is $(x)."), inst.precedences)
+	println("\n")
 
 end
 
-function set_instance(num_tasks::Int64, max_cycle::Int64, time::Array{Int64, 1}, stats::Array{Tuple{Int64, Int64}, 1})
+function set_instance(num_tasks::Int64, max_cycle::Int64, times::Array{Int64, 1}, stats::Array{Tuple{Int64, Int64}, 1})
 
 	adj_matrix::Array{Int64, 2} = zeros(Int64, num_tasks, num_tasks)
 
@@ -22,7 +26,9 @@ function set_instance(num_tasks::Int64, max_cycle::Int64, time::Array{Int64, 1},
 		adj_matrix[tup[1], tup[2]] = 1
 	end
 
-	println(adj_matrix)
+	inst = Instance(num_tasks, max_cycle, times, stats, adj_matrix)
+
+	return inst
 
 end
 
@@ -39,13 +45,9 @@ function read_instance_file(filename::String, max_cycle::Int64)
 	task = 0
 	precedences = 0
 
-	set_instance(num_of_taks, max_cycle, task_times, precedence)
+	inst::Instance = set_instance(num_of_taks, max_cycle, task_times, precedence)
 
-	# println("Instance name: $(filename)")
-	# println("This instance has $(num_of_taks) tasks.")
-	# foreach(x->println("The task $(task+=1) takes $(x) time units."), task_times)
-	# foreach(x->println("The precedence $(precedences+=1) is $(x)."), precedence)
+	print_instance(filename, inst)
 
-	# println("\n")
-
+	return inst
 end
