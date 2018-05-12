@@ -31,6 +31,6 @@ function read_instance_file(filename::String)
 
 end
 
-read_instance_file("MERTENS.IN2")
-read_instance_file("MITCHELL.IN2")
-read_instance_file("WEE-MAG.IN2")
+# read_instance_file("MERTENS.IN2")
+# read_instance_file("MITCHELL.IN2")
+# read_instance_file("WEE-MAG.IN2")
