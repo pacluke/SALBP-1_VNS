@@ -18,7 +18,24 @@ function print_instance(filename::String, inst::Instance)
 	print("\n")
 	foreach(x->println("The precedence $(precedences+=1) is $(x)."), inst.precedences)
 	print("\n")
+	# foreach(x->println("This is $(x)."), inst.adjacency_matrix)
+	# print("\n")
 
+	print("\t")
+
+	foreach(x->print("$(x)\t"), 1:inst.number_of_tasks)
+
+	print("\n")
+
+	for i in 1:inst.number_of_tasks
+		print("$i")
+		for j in 1:inst.number_of_tasks
+		   print("\t$(inst.adjacency_matrix[i, j])") 
+		end
+		print("\n")
+	end
+
+	print("\n")
 end
 
 function set_instance(num_tasks::Int64, max_cycle::Int64, times::Array{Int64, 1}, stats::Array{Tuple{Int64, Int64}, 1})
