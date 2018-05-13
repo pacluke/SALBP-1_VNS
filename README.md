@@ -12,9 +12,10 @@ A linha de montagem marcada consiste em uma sequencia de estações de trabalho.
 ### SALBP-1
 Na versão tipo 1 do SALBP o tempo máximo de ciclo é dado e a ideia é minimizar o número de estações criadas para executar as tarefas.
 
-[1]: https://assembly-line-balancing.de/salbp/
-
 ## Sobre a metaheuristica
 Em desenovlvimento.
+
 ## Resultados
 Sem resultados por enquanto.
+
+[^1]: https://assembly-line-balancing.de/salbp/
