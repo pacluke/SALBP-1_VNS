@@ -1,6 +1,6 @@
 
 # data_structure.jl
-# "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira"
+# "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira (https://github.com/isadorasop)"
 
 struct Instance
 	number_of_tasks :: Int64

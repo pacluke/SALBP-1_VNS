@@ -1,6 +1,6 @@
 
 # tests.jl
-# "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira"
+# "Lucas Flores (https://github.com/pacluke) and Isadora Oliveira (https://github.com/isadorasop)"
 
 include("../vns/instance_parser.jl")
 include("../vns/data_structure.jl")
