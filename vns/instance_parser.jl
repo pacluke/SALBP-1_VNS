@@ -6,8 +6,8 @@ include("./data_structure.jl")
 
 function print_instance(filename::String, inst::Instance)
 
-	task = 0
-	precedences = 0
+	task::Int64 = 0
+	precedences::Int64 = 0
 
 	print("\n")
 	println("Instance name: $(filename)")
@@ -30,18 +30,18 @@ function print_instance(filename::String, inst::Instance)
 		print("\n")
 	end
 	print("\n")
-	
+
 end
 
 function set_instance(num_tasks::Int64, max_cycle::Int64, times::Array{Int64, 1}, stats::Array{Tuple{Int64, Int64}, 1})
 
-	adj_matrix::Array{Int64, 2} = zeros(Int64, num_tasks, num_tasks)
+	adj_matrix::Array{Int64, 2} = falses(num_tasks, num_tasks)
 
 	for tup in stats
-		adj_matrix[tup[1], tup[2]] = 1
+		adj_matrix[tup[1], tup[2]] = true
 	end
 
-	inst = Instance(num_tasks, max_cycle, times, stats, adj_matrix)
+	inst::Instance = Instance(num_tasks, max_cycle, times, stats, adj_matrix)
 
 	return inst
 
@@ -57,8 +57,8 @@ function read_instance_file(filename::String, max_cycle::Int64)
 	task_times = map(x->parse(Int64, x), file_lines[2:num_of_taks+1])
 	precedence = map(x->tuple(parse(Int64, split(x,",")[1]),parse(Int64, split(x,",")[2])), file_lines[num_of_taks+2:length(file_lines)-1])
 
-	task = 0
-	precedences = 0
+	task::Int64 = 0
+	precedences::Int64 = 0
 
 	inst::Instance = set_instance(num_of_taks, max_cycle, task_times, precedence)
 
