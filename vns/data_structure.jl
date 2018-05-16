@@ -8,6 +8,7 @@ struct Instance
 	tasks_time :: Array{Int64, 1}
 	precedences :: Array{Tuple{Int64, Int64}, 1}
 	adjacency_matrix :: Array{Bool, 2}
+	times_matrix :: Array{Int64, 2}
 end
 
 struct Solution

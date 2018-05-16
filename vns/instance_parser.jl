@@ -25,7 +25,7 @@ function print_instance(filename::String, inst::Instance)
 	for i in 1:inst.number_of_tasks
 		print("$i")
 		for j in 1:inst.number_of_tasks
-		   print("\t$(inst.adjacency_matrix[i, j])") 
+		   print("\t$(inst.times_matrix[i, j])") 
 		end
 		print("\n")
 	end
@@ -35,13 +35,15 @@ end
 
 function set_instance(num_tasks::Int64, max_cycle::Int64, times::Array{Int64, 1}, stats::Array{Tuple{Int64, Int64}, 1})
 
-	adj_matrix::Array{Int64, 2} = falses(num_tasks, num_tasks)
+	adj_matrix::Array{Bool, 2} = falses(num_tasks, num_tasks)
+	tms_matrix :: Array{Int64, 2} = zeros(Int64, num_tasks, num_tasks)
 
 	for tup in stats
 		adj_matrix[tup[1], tup[2]] = true
+		tms_matrix[tup[1], tup[2]] = (times[tup[1]] + times[tup[2]])
 	end
 
-	inst::Instance = Instance(num_tasks, max_cycle, times, stats, adj_matrix)
+	inst::Instance = Instance(num_tasks, max_cycle, times, stats, adj_matrix, tms_matrix)
 
 	return inst
 
