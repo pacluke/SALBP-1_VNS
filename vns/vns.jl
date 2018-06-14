@@ -16,7 +16,12 @@ function print_solution(sol::Solution)
 end
 
 function verify_precedence(inst::Instance, node_a::Int64, node_b::Int64)
-	return (inst.adjacency_matrix[node_a, node_b] || inst.adjacency_matrix[node_b, node_a])
+	if(inst.adjacency_matrix[node_a, node_b] || inst.adjacency_matrix[node_b, node_a])
+	    return true
+	else
+		
+		return false
+	end
 end
 
 function initial_solution(inst::Instance)

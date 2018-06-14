@@ -51,7 +51,7 @@ end
 
 function read_instance_file(filename::String, max_cycle::Int64)
 
-	file = open("../instances/$(filename)")
+	file = open("instances/$(filename)")
 	file_lines = readlines(file)
 	close(file)
 
