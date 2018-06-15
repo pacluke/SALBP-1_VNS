@@ -15,11 +15,26 @@ function print_solution(sol::Solution)
 
 end
 
+function dfs(inst::Instance, node_a::Int64, node_b::Int64)
+
+	for i in 1:inst.number_of_tasks
+		# println("Visiting $i")
+		if inst.adjacency_matrix[node_a, i]
+			if i == node_b
+			    return true	    
+			elseif dfs(inst, i, node_b)
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
 function verify_precedence(inst::Instance, node_a::Int64, node_b::Int64)
 	if(inst.adjacency_matrix[node_a, node_b] || inst.adjacency_matrix[node_b, node_a])
 	    return true
 	else
-		
 		return false
 	end
 end
@@ -48,6 +63,14 @@ function main()
 	full_instance::Instance = read_instance_file(filename, cycle_time)
 
 	initial_solution(full_instance)
+
+	# println(dfs(full_instance, 1, 6))
+
+	# for i in 1:full_instance.number_of_tasks
+	# 	for j in 1:full_instance.number_of_tasks
+	# 		println("($i -> $j) is $(dfs(full_instance, i, j))")
+	# 	end
+	# end
 
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks
