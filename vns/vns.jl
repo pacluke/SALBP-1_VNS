@@ -35,7 +35,7 @@ function verify_precedence(inst::Instance, node_a::Int64, node_b::Int64)
 	if(inst.adjacency_matrix[node_a, node_b] || inst.adjacency_matrix[node_b, node_a])
 	    return true
 	else
-		return false
+		return !(dfs(inst, node_a, node_b) || dfs(inst, node_b, node_a))
 	end
 end
 
@@ -64,13 +64,11 @@ function main()
 
 	initial_solution(full_instance)
 
-	# println(dfs(full_instance, 1, 6))
-
-	# for i in 1:full_instance.number_of_tasks
-	# 	for j in 1:full_instance.number_of_tasks
-	# 		println("($i -> $j) is $(dfs(full_instance, i, j))")
-	# 	end
-	# end
+	for i in 1:full_instance.number_of_tasks
+		for j in 1:full_instance.number_of_tasks
+			println("($i -> $j) is $(verify_precedence(full_instance, i, j))")
+		end
+	end
 
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks
