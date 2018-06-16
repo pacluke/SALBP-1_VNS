@@ -8,7 +8,7 @@ include("./data_structure.jl")
 function print_solution(sol::Solution)
 
 	station::Int64 = 0
-    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) of cycle time.") ,sol.stations)
+    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) time unit(s) of cycle time.") ,sol.stations)
     print("\n")
     println("The solution has $(length(sol.stations)) stations.")
     print("\n")
@@ -39,6 +39,43 @@ function verify_precedence(inst::Instance, task_a::Int64, task_b::Int64)
 	end
 end
 
+
+function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
+
+	return (sol.stations[station_index][2] + inst.tasks_time[task]) <= inst.maximum_cicle_time
+    
+end
+
+function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
+
+	if verify_task_time(inst, sol, station_index, task)
+
+		for task_b in sol.stations[station_index][1]
+			if !(verify_precedence(inst, task, task_b))
+			    return false
+			end
+		end
+
+		push!(sol.stations[station_index][1], task)
+		# temp::Int64 = sol.stations[station_index][2] + inst.tasks_time[task]
+		sol.stations[station_index] = tuple(sol.stations[station_index][1], sol.stations[station_index][2] + inst.tasks_time[task])
+
+		# println(temp)
+
+		return true
+	    
+	end
+
+	return false
+    
+end
+
+# function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
+
+
+
+# end
+
 function simple_initial_solution(inst::Instance)
     
     sol::Solution = Solution([])
@@ -47,20 +84,10 @@ function simple_initial_solution(inst::Instance)
         push!(sol.stations, tuple([i], inst.tasks_time[i]))
     end
 
-    print_solution(sol)
+    # print_solution(sol)
 
     return sol
 
-end
-
-function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
-
-	return (sol.stations[station_index][2] + inst.tasks_time[task]) <= inst.maximum_cicle_time
-    
-end
-
-function add_task()
-    
 end
 
 # function greedy_initial_solution(inst::Instance)
@@ -80,7 +107,11 @@ function main()
 
 	initial_solution = simple_initial_solution(full_instance)
 
-	println(verify_task_time(full_instance, initial_solution, 1, 3))
+	print_solution(initial_solution)
+
+	println(add_task(full_instance, initial_solution, 1, 2))
+
+	print_solution(initial_solution)
 
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks
