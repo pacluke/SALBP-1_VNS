@@ -15,14 +15,14 @@ function print_solution(sol::Solution)
 
 end
 
-function dfs(inst::Instance, node_a::Int64, node_b::Int64)
+function dfs(inst::Instance, task_a::Int64, task_b::Int64)
 
 	for i in 1:inst.number_of_tasks
 		# println("Visiting $i")
-		if inst.adjacency_matrix[node_a, i]
-			if i == node_b
+		if inst.adjacency_matrix[task_a, i]
+			if i == task_b
 			    return true	    
-			elseif dfs(inst, i, node_b)
+			elseif dfs(inst, i, task_b)
 				return true
 			end
 		end
@@ -31,11 +31,11 @@ function dfs(inst::Instance, node_a::Int64, node_b::Int64)
 	return false
 end
 
-function verify_precedence(inst::Instance, node_a::Int64, node_b::Int64)
-	if(inst.adjacency_matrix[node_a, node_b] || inst.adjacency_matrix[node_b, node_a])
+function verify_precedence(inst::Instance, task_a::Int64, task_b::Int64)
+	if(inst.adjacency_matrix[task_a, task_b] || inst.adjacency_matrix[task_b, task_a])
 	    return true
 	else
-		return !(dfs(inst, node_a, node_b) || dfs(inst, node_b, node_a))
+		return !(dfs(inst, task_a, task_b) || dfs(inst, task_b, task_a))
 	end
 end
 
@@ -53,9 +53,13 @@ function simple_initial_solution(inst::Instance)
 
 end
 
-function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, new_node::Int64)
+function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
 
-	return (sol.stations[station_index][2] + inst.tasks_time[new_node]) <= inst.maximum_cicle_time
+	return (sol.stations[station_index][2] + inst.tasks_time[task]) <= inst.maximum_cicle_time
+    
+end
+
+function add_task()
     
 end
 
