@@ -58,7 +58,8 @@ function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int
 
 		push!(sol.stations[station_index][1], task)
 		# temp::Int64 = sol.stations[station_index][2] + inst.tasks_time[task]
-		sol.stations[station_index] = tuple(sol.stations[station_index][1], sol.stations[station_index][2] + inst.tasks_time[task])
+		sol.stations[station_index] = tuple(sol.stations[station_index][1],
+			sol.stations[station_index][2] + inst.tasks_time[task])
 
 		# println(temp)
 
@@ -70,11 +71,13 @@ function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int
     
 end
 
-# function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
+function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
 
+	filter!(x->x != task, sol.stations[station_index][1])
+	sol.stations[station_index] = tuple(sol.stations[station_index][1],
+			sol.stations[station_index][2] - inst.tasks_time[task])
 
-
-# end
+end
 
 function simple_initial_solution(inst::Instance)
     
@@ -110,6 +113,10 @@ function main()
 	print_solution(initial_solution)
 
 	println(add_task(full_instance, initial_solution, 1, 2))
+
+	print_solution(initial_solution)
+
+	remove_task(full_instance, initial_solution, 1, 2)
 
 	print_solution(initial_solution)
 
