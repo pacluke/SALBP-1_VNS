@@ -53,11 +53,17 @@ function simple_initial_solution(inst::Instance)
 
 end
 
-function greedy_initial_solution(inst::Instance)
+function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, new_node::Int64)
 
-	sol::Solution = Solution([])
-
+	return (sol.stations[station_index][2] + inst.tasks_time[new_node]) <= inst.maximum_cicle_time
+    
 end
+
+# function greedy_initial_solution(inst::Instance)
+
+# 	sol::Solution = Solution([])
+
+# end
 
 
 function main()
@@ -68,14 +74,16 @@ function main()
 
 	full_instance::Instance = read_instance_file(filename, cycle_time)
 
-	simple_initial_solution(full_instance)
+	initial_solution = simple_initial_solution(full_instance)
 
-	for i in 1:full_instance.number_of_tasks
-		for j in 1:full_instance.number_of_tasks
-			# println("($i -> $j) is $(verify_precedence(full_instance, i, j))")
-			verify_precedence(full_instance, i, j)
-		end
-	end
+	println(verify_task_time(full_instance, initial_solution, 1, 3))
+
+	# for i in 1:full_instance.number_of_tasks
+	# 	for j in 1:full_instance.number_of_tasks
+	# 		println("($i -> $j) is $(verify_precedence(full_instance, i, j))")
+	# 		verify_precedence(full_instance, i, j)
+	# 	end
+	# end
 
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks

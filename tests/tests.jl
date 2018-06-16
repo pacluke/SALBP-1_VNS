@@ -12,7 +12,7 @@ function main()
 	seed::Int64 = parse(Int64, ARGS[3])
 
 	k = read_instance_file(filename, cycle_time)
-	w = Solution([[1, 2, 3], [1], [1, 2]])
+	w = Solution([([1, 2, 3], 10), ([1], 20), ([1, 2], 30)])
 
 	println("The minimum possible is $(Int64(round(sum(k.tasks_time)/cycle_time)))")
 	print("\n")
