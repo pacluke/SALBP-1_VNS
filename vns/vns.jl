@@ -8,7 +8,7 @@ include("./data_structure.jl")
 function print_solution(sol::Solution)
 
 	station::Int64 = 0
-    foreach(x->println("Station $(station+=1) is composed by $(x).") ,sol.stations)
+    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) of cycle time.") ,sol.stations)
     print("\n")
     println("The solution has $(length(sol.stations)) stations.")
     print("\n")
@@ -39,17 +39,23 @@ function verify_precedence(inst::Instance, node_a::Int64, node_b::Int64)
 	end
 end
 
-function initial_solution(inst::Instance)
+function simple_initial_solution(inst::Instance)
     
     sol::Solution = Solution([])
 
     for i in 1:inst.number_of_tasks
-        push!(sol.stations, [i])
+        push!(sol.stations, tuple([i], inst.tasks_time[i]))
     end
 
     print_solution(sol)
 
     return sol
+
+end
+
+function greedy_initial_solution(inst::Instance)
+
+	sol::Solution = Solution([])
 
 end
 
@@ -62,11 +68,12 @@ function main()
 
 	full_instance::Instance = read_instance_file(filename, cycle_time)
 
-	initial_solution(full_instance)
+	simple_initial_solution(full_instance)
 
 	for i in 1:full_instance.number_of_tasks
 		for j in 1:full_instance.number_of_tasks
-			println("($i -> $j) is $(verify_precedence(full_instance, i, j))")
+			# println("($i -> $j) is $(verify_precedence(full_instance, i, j))")
+			verify_precedence(full_instance, i, j)
 		end
 	end
 

@@ -64,7 +64,7 @@ function read_instance_file(filename::String, max_cycle::Int64)
 
 	inst::Instance = set_instance(num_of_taks, max_cycle, task_times, precedence)
 
-	print_instance(filename, inst)
+	# print_instance(filename, inst)
 
 	return inst
 end

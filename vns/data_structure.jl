@@ -12,5 +12,5 @@ struct Instance
 end
 
 struct Solution
-	stations :: Array{Array{Int64, 1}, 1}
+	stations :: Array{Tuple{Array{Int64, 1}, Int64}, 1}
 end
