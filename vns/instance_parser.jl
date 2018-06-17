@@ -37,13 +37,35 @@ function set_instance(num_tasks::Int64, max_cycle::Int64, times::Array{Int64, 1}
 
 	adj_matrix::Array{Bool, 2} = falses(num_tasks, num_tasks)
 	tms_matrix :: Array{Int64, 2} = zeros(Int64, num_tasks, num_tasks)
+	ord_tasks::Array{Int64, 1} = []
 
 	for tup in stats
 		adj_matrix[tup[1], tup[2]] = true
 		tms_matrix[tup[1], tup[2]] = (times[tup[1]] + times[tup[2]])
 	end
 
-	inst::Instance = Instance(num_tasks, max_cycle, times, stats, adj_matrix, tms_matrix)
+	times_ord::Array{Int64, 1} = sort(times)
+
+	times_cpy = deepcopy(times)
+
+	# println(times_cpy)
+	# println(times_ord)
+
+	for i in 1:num_tasks
+
+		k::Int64 = findfirst(times_cpy, times_ord[i])
+
+		push!(ord_tasks, k)
+
+		times_cpy[k] = 0
+
+	end
+
+	# println(times_ord)
+
+	println(ord_tasks)
+
+	inst::Instance = Instance(num_tasks, max_cycle, times, stats, adj_matrix, tms_matrix, ord_tasks)
 
 	return inst
 

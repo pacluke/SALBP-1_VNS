@@ -48,27 +48,31 @@ end
 
 function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
 
-	if verify_task_time(inst, sol, station_index, task)
+	if station_index <= length(sol.stations)
+	    
+		if verify_task_time(inst, sol, station_index, task)
 
-		for task_b in sol.stations[station_index][1]
-			if !(verify_precedence(inst, task, task_b))
-			    return false
+			for task_b in sol.stations[station_index][1]
+				if !(verify_precedence(inst, task, task_b))
+				    return false
+				end
 			end
+
+			push!(sol.stations[station_index][1], task)
+			sol.stations[station_index] = tuple(sol.stations[station_index][1],
+				sol.stations[station_index][2] + inst.tasks_time[task])
+
+			return true 
 		end
 
-		push!(sol.stations[station_index][1], task)
-		# temp::Int64 = sol.stations[station_index][2] + inst.tasks_time[task]
-		sol.stations[station_index] = tuple(sol.stations[station_index][1],
-			sol.stations[station_index][2] + inst.tasks_time[task])
+		return false
+	else
 
-		# println(temp)
-
-		return true
-	    
+		push!(sol.stations, tuple([task], inst.tasks_time[task]))
+		return true 
 	end
 
-	return false
-    
+	return false    
 end
 
 function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
@@ -77,6 +81,26 @@ function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::
 	sol.stations[station_index] = tuple(sol.stations[station_index][1],
 			sol.stations[station_index][2] - inst.tasks_time[task])
 
+	if length(sol.stations[station_index][1]) == 0
+		deleteat!(sol.stations, station_index)
+	end
+
+end
+
+function get_minor_station(sol::Solution)
+
+	minor_index = 1
+
+	for index in 1:length(sol.stations)
+	    
+	    if sol.stations[minor_index][2] > sol.stations[index][2]
+	        minor_index = index
+	    end
+
+	end
+
+	return minor_index
+    
 end
 
 function simple_initial_solution(inst::Instance)
@@ -108,6 +132,15 @@ function generate_neighbours(inst::Instance, sol::Solution, neighbourood::Int64)
 	# gerar soluções da forma menos custosa possível
 
     #TODO
+
+    neighbourood::Array{Solution, 1} = []
+
+    neighbour::Solution = deepcopy(sol)
+
+
+
+
+
 
 end
 
@@ -147,15 +180,24 @@ function main()
 
 	initial_solution = simple_initial_solution(full_instance)
 
+
 	# print_solution(initial_solution)
 
 	# println(add_task(full_instance, initial_solution, 1, 2))
 
 	# print_solution(initial_solution)
 
-	# remove_task(full_instance, initial_solution, 1, 2)
+	# remove_task(full_instance, initial_solution, 1, 1)
 
-	# print_solution(initial_solution)
+	print_solution(initial_solution)
+
+	# println(get_minor_station(initial_solution))
+
+
+	generate_neighbours(full_instance, initial_solution, 10)
+
+
+	####################################################################
 
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks

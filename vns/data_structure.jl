@@ -9,6 +9,7 @@ struct Instance
 	precedences :: Array{Tuple{Int64, Int64}, 1}
 	adjacency_matrix :: Array{Bool, 2}
 	times_matrix :: Array{Int64, 2}
+	ordered_tasks::Array{Int64, 1}
 end
 
 struct Solution
