@@ -95,11 +95,17 @@ end
 
 function greedy_initial_solution(inst::Instance)
 
+	# de alguma forma, criar uma solução gulosa
+	# que não seja muito custosa, mas que ajude
+	# a começar bem o algoritmo
+
 	#TODO
 
 end
 
 function generate_neighbours(inst::Instance, sol::Solution, neighbourood::Int64)
+
+	# gerar soluções da forma menos custosa possível
 
     #TODO
 
@@ -107,11 +113,18 @@ end
 
 function shake(inst::Instance, sol::Solution, neighbourood::Int64)
 
+	# acho que vou usar a shake pra remover nodos e a
+	# geradora de vizinhos pra colocar dentro
+
     #TODO
-      
+
 end
 
 function local_search(inst::Instance, solutions::Array{Solution, 1})
+
+	# tem que escolher a melhor solução em um vetor de soluções
+	# mas se duas tiverem o mesmo número de estaçãoes
+	# como escolher qual é mais promissora?
 
     #TODO
     
