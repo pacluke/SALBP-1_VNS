@@ -8,7 +8,8 @@ include("./data_structure.jl")
 function print_solution(sol::Solution)
 
 	station::Int64 = 0
-    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) time unit(s) of cycle time.") ,sol.stations)
+    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) time unit(s) of cycle time."), 
+    	sol.stations)
     print("\n")
     println("The solution has $(length(sol.stations)) stations.")
     print("\n")
@@ -17,7 +18,7 @@ end
 
 function dfs(inst::Instance, task_a::Int64, task_b::Int64)
 
-	for i in 1:inst.number_of_tasks
+	for i::Int64 in 1:inst.number_of_tasks
 		# println("Visiting $i")
 		if inst.adjacency_matrix[task_a, i]
 			if i == task_b
@@ -42,7 +43,7 @@ end
 
 function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
 
-	return (sol.stations[station_index][2] + inst.tasks_time[task]) <= inst.maximum_cicle_time
+	return ((sol.stations[station_index][2] + inst.tasks_time[task]) <= inst.maximum_cicle_time)
     
 end
 
@@ -87,11 +88,22 @@ function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::
 
 end
 
+function get_station_by_task(sol::Solution, task::Int64)
+
+	for i::Int64 in 1:length(sol.stations)
+	    if task in sol.stations[i][1]
+	        return i
+	    end
+	end
+
+    return 0
+end
+
 function get_minor_station(sol::Solution)
 
 	minor_index = 1
 
-	for index in 1:length(sol.stations)
+	for index::Int64 in 1:length(sol.stations)
 	    
 	    if sol.stations[minor_index][2] > sol.stations[index][2]
 	        minor_index = index
@@ -107,7 +119,7 @@ function simple_initial_solution(inst::Instance)
     
     sol::Solution = Solution([])
 
-    for i in 1:inst.number_of_tasks
+    for i::Int64 in 1:inst.number_of_tasks
         push!(sol.stations, tuple([i], inst.tasks_time[i]))
     end
 
@@ -127,7 +139,7 @@ function greedy_initial_solution(inst::Instance)
 
 end
 
-function generate_neighbours(inst::Instance, sol::Solution, neighbourood::Int64)
+function generate_neighbours(inst::Instance, sol::Solution, neighbourood_number::Int64)
 
 	# gerar soluções da forma menos custosa possível
 
@@ -135,12 +147,78 @@ function generate_neighbours(inst::Instance, sol::Solution, neighbourood::Int64)
 
     neighbourood::Array{Solution, 1} = []
 
-    neighbour::Solution = deepcopy(sol)
+
+    # for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
+    for i::Int64 in 1:inst.number_of_tasks
+
+    	station_index::Int64 = 1
+    	added::Bool = false
+
+    	neighbour::Solution = deepcopy(sol)
+
+    	while ((station_index <= length(sol.stations)))
+
+    		task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
+    	    
+    	    if (task_station != station_index)
+
+	    	    added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
+
+	    	    if added
+	    	    	remove_task(inst, neighbour, task_station, inst.ordered_tasks[i])
+	    	    	push!(neighbourood, neighbour)
+	    	    	break
+	    	    end
+
+	    	end
+
+	    	station_index += 1
+
+    	end
+
+    end
+
+    neigh_length::Int64 = length(neighbourood)
+
+    for csgo::Int64 in 1:neighbourood_number
+
+    	for neigh in 1:neigh_length
+
+		    for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
+
+		    	station_index::Int64 = 1
+		    	added::Bool = false
+
+		    	neighbour::Solution = deepcopy(neighbourood[neigh])
+
+		    	while ((station_index <= length(neighbourood[neigh].stations)))
+
+		    		task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
+		    	    
+		    	    if (task_station != station_index)
+
+			    	    added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
+
+			    	    if added
+			    	    	remove_task(inst, neighbour, task_station, inst.ordered_tasks[i])
+			    	    	push!(neighbourood, neighbour)
+			    	    	break
+			    	    end
+
+			    	end
+
+			    	station_index += 1
+
+		    	end
+
+		    end
+
+    	end
+
+    end
 
 
-
-
-
+    return neighbourood
 
 end
 
@@ -153,13 +231,23 @@ function shake(inst::Instance, sol::Solution, neighbourood::Int64)
 
 end
 
-function local_search(inst::Instance, solutions::Array{Solution, 1})
+function local_search(solutions::Array{Solution, 1})
 
 	# tem que escolher a melhor solução em um vetor de soluções
 	# mas se duas tiverem o mesmo número de estaçãoes
 	# como escolher qual é mais promissora?
 
     #TODO
+
+    best_solution::Solution = solutions[1]
+
+    for i in 2:length(solutions)
+        if (length(solutions[i].stations) <= length(best_solution.stations))
+        	best_solution = solutions[i]
+        end
+    end
+
+    return best_solution
     
 end
 
@@ -194,7 +282,14 @@ function main()
 	# println(get_minor_station(initial_solution))
 
 
-	generate_neighbours(full_instance, initial_solution, 10)
+	neighbourhood::Array{Solution, 1} = generate_neighbours(full_instance, initial_solution, 10)
+
+	# for i::Int64 in 1:length(neighbourhood)
+	#    println("..::: Solution $i :::..")
+	#    print_solution(neighbourhood[i])
+	# end
+
+	print_solution(local_search(neighbourhood))
 
 
 	####################################################################

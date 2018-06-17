@@ -63,7 +63,7 @@ function set_instance(num_tasks::Int64, max_cycle::Int64, times::Array{Int64, 1}
 
 	# println(times_ord)
 
-	println(ord_tasks)
+	# println(ord_tasks)
 
 	inst::Instance = Instance(num_tasks, max_cycle, times, stats, adj_matrix, tms_matrix, ord_tasks)
 
