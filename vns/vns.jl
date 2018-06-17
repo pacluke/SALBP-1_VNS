@@ -93,11 +93,35 @@ function simple_initial_solution(inst::Instance)
 
 end
 
-# function greedy_initial_solution(inst::Instance)
+function greedy_initial_solution(inst::Instance)
 
-# 	sol::Solution = Solution([])
+	#TODO
 
-# end
+end
+
+function generate_neighbours(inst::Instance, sol::Solution, neighbourood::Int64)
+
+    #TODO
+
+end
+
+function shake(inst::Instance, sol::Solution, neighbourood::Int64)
+
+    #TODO
+      
+end
+
+function local_search(inst::Instance, solutions::Array{Solution, 1})
+
+    #TODO
+    
+end
+
+function vns()
+
+    #TODO
+    
+end
 
 
 function main()
@@ -110,15 +134,15 @@ function main()
 
 	initial_solution = simple_initial_solution(full_instance)
 
-	print_solution(initial_solution)
+	# print_solution(initial_solution)
 
-	println(add_task(full_instance, initial_solution, 1, 2))
+	# println(add_task(full_instance, initial_solution, 1, 2))
 
-	print_solution(initial_solution)
+	# print_solution(initial_solution)
 
-	remove_task(full_instance, initial_solution, 1, 2)
+	# remove_task(full_instance, initial_solution, 1, 2)
 
-	print_solution(initial_solution)
+	# print_solution(initial_solution)
 
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks
