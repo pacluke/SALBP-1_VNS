@@ -251,11 +251,32 @@ function local_search(solutions::Array{Solution, 1})
     
 end
 
-function vns()
+function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int64, max_iterations::Int64)
+    # tic() # tempo inicial
 
-    #TODO
-    
+    # for i in 1:max_iterations
+    #     k = 1
+
+    #     while k <= max_neighborhoods
+
+    #         x1 = shake(inst, initial_solution, k)
+
+    #         x2 = local_search(generate_neighbours(inst, x1, k)) # aqui seria o hill climbing
+
+    #         if length(x2.stations) < length(initial_solution.stations)
+    #             initial_solution = x2
+    #             k = 1
+    #         else
+
+    #             k += 1
+    #         end
+    #     end
+    # end
+
+    # toc() # tempo final
+    # return initial_solution
 end
+
 
 
 function main()
@@ -275,7 +296,7 @@ function main()
 
 	# print_solution(initial_solution)
 
-	# remove_task(full_instance, initial_solution, 1, 1)
+	# remove_task(full_instance, initial_solution, 1, 1) 
 
 	print_solution(initial_solution)
 
