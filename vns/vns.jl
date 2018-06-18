@@ -247,12 +247,20 @@ function generate_neighbours(inst::Instance, sol::Solution, neighbourood_number:
 
 end
 
-function shake(inst::Instance, sol::Solution, neighbourood::Int64)
+function shake(inst::Instance, sol::Solution)
 
 	# acho que vou usar a shake pra remover nodos e a
 	# geradora de vizinhos pra colocar dentro
 
-    #TODO
+	station::Int64 = rand(1:length(sol.stations))
+
+	for i::Int64 in 1:length(sol.stations[station][1])
+		removedTask = sol.stations[station][1][1]
+		remove_task(inst, sol, station, removedTask)
+		add_task(inst, sol, length(sol.stations)+1, removedTask)
+	end
+
+    return sol
 
 end
 
@@ -309,12 +317,14 @@ function main()
 	filename::String = ARGS[1]
 	cycle_time::Int64 = parse(Int64, ARGS[2])
 	seed::Int64 = parse(Int64, ARGS[3])
+	srand(seed)
 
 	full_instance::Instance = read_instance_file(filename, cycle_time)
 
 	initial_solution = simple_initial_solution(full_instance)
 
 	greedy_solution = greedy_initial_solution(full_instance)
+
 
 	# print_solution(initial_solution)
 
@@ -330,14 +340,16 @@ function main()
 	# println(get_minor_station(initial_solution))
 
 
-	neighbourhood::Array{Solution, 1} = generate_neighbours(full_instance, initial_solution, 10)
+#	neighbourhood::Array{Solution, 1} = generate_neighbours(full_instance, initial_solution, 10)
+	shake_solution = shake(full_instance, greedy_solution)
+	print_solution(shake_solution)
 
 	# for i::Int64 in 1:length(neighbourhood)
 	#    println("..::: Solution $i :::..")
 	#    print_solution(neighbourhood[i])
 	# end
 
-	print_solution(local_search(neighbourhood))
+	#print_solution(local_search(neighbourhood))
 
 
 	####################################################################
