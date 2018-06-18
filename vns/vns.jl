@@ -337,8 +337,14 @@ function shake(inst::Instance, sol::Solution)
 
 	# acho que vou usar a shake pra remover nodos e a
 	# geradora de vizinhos pra colocar dentro
+	station::Int64 = 0
 
-	station::Int64 = rand(1:length(sol.stations))
+	for j::Int64 in 1:length(sol.stations)
+		station = rand(1:length(sol.stations))
+		if length(sol.stations[station][1]) > 1
+			break
+		end
+	end
 
 	for i::Int64 in 1:length(sol.stations[station][1])
 		removedTask = sol.stations[station][1][1]
