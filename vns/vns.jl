@@ -32,11 +32,37 @@ function dfs(inst::Instance, task_a::Int64, task_b::Int64)
 	return false
 end
 
+function dfs_station(inst::Instance, sol::Solution, task_a::Int64, task_b::Int64, station::Int64)
+	for i::Int64 in 1:inst.number_of_tasks
+		# println("Visiting $i")
+		if inst.adjacency_matrix[task_a, i]
+			if i == task_b
+				if (get_station_by_task(sol, task_a) == station)
+					return false
+				end
+			    return true
+			elseif dfs_station(inst, sol, i, task_b, station)
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
 function verify_precedence(inst::Instance, task_a::Int64, task_b::Int64)
 	if(inst.adjacency_matrix[task_a, task_b] || inst.adjacency_matrix[task_b, task_a])
 	    return true
 	else
 		return !(dfs(inst, task_a, task_b) || dfs(inst, task_b, task_a))
+	end
+end
+
+function verify_precedence_station(inst::Instance, sol::Solution, task_a::Int64, task_b::Int64, station::Int64)
+	if(inst.adjacency_matrix[task_a, task_b] || inst.adjacency_matrix[task_b, task_a])
+	    return true
+	else
+		return !(dfs_station(inst, sol, task_a, task_b, station) || dfs_station(inst, sol, task_b, task_a, station))
 	end
 end
 
@@ -52,17 +78,40 @@ function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int
 	if station_index <= length(sol.stations)
 
 		if verify_task_time(inst, sol, station_index, task)
-
 			for task_b in sol.stations[station_index][1]
 				if !(verify_precedence(inst, task, task_b))
 				    return false
 				end
 			end
-
 			push!(sol.stations[station_index][1], task)
 			sol.stations[station_index] = tuple(sol.stations[station_index][1],
 				sol.stations[station_index][2] + inst.tasks_time[task])
+			return true
+		end
 
+		return false
+	else
+
+		push!(sol.stations, tuple([task], inst.tasks_time[task]))
+		return true
+	end
+
+	return false
+end
+
+function add_task_station(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
+
+	if station_index <= length(sol.stations)
+
+		if verify_task_time(inst, sol, station_index, task)
+			for task_b in sol.stations[station_index][1]
+				if !(verify_precedence_station(inst, sol, task, task_b, station_index))
+				    return false
+				end
+			end
+			push!(sol.stations[station_index][1], task)
+			sol.stations[station_index] = tuple(sol.stations[station_index][1],
+				sol.stations[station_index][2] + inst.tasks_time[task])
 			return true
 		end
 
@@ -164,87 +213,124 @@ function greedy_initial_solution(inst::Instance)
 	return sol
 end
 
-function generate_neighbours(inst::Instance, sol::Solution, neighbourood_number::Int64)
+function neighbours(inst::Instance, sol::Solution, neighbourhood_number::Int64)
+	neighbourhood = generate_random_neighbours(inst, sol, neighbourhood_number)
+	if (length(neighbourhood) < neighbourhood_number)
+		generate_neighbours(inst, sol, (neighbourhood_number - length(neighbourhood)), neighbourhood)
+	end
+	return neighbourhood
+end
+
+function generate_neighbours(inst::Instance, sol::Solution, neighbourhood_number::Int64, neighbourhood::Array{Solution, 1})
+
+   # for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
+   for i::Int64 in 1:inst.number_of_tasks
+
+	   station_index::Int64 = 1
+	   added::Bool = false
+
+	   neighbour::Solution = deepcopy(sol)
+
+	   while ((station_index <= length(sol.stations)))
+
+		   task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
+
+		   if (task_station != station_index)
+
+			   added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
+
+			   if added
+				   remove_task(inst, neighbour, task_station, inst.ordered_tasks[i])
+				   push!(neighbourhood, neighbour)
+				   break
+			   end
+
+		   end
+
+		   station_index += 1
+
+	   end
+
+	end
+
+	neigh_length::Int64 = length(neighbourhood)
+
+	for csgo::Int64 in 1:neighbourhood_number
+
+		for neigh in 1:neigh_length
+
+			for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
+
+				station_index::Int64 = 1
+				added::Bool = false
+
+				neighbour::Solution = deepcopy(neighbourhood[neigh])
+
+				while ((station_index <= length(neighbourhood[neigh].stations)))
+
+					task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
+
+					if (task_station != station_index)
+
+						added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
+
+						if added
+							remove_task(inst, neighbour, task_station, inst.ordered_tasks[i])
+							push!(neighbourhood, neighbour)
+							break
+						end
+					end
+					station_index += 1
+				end
+			end
+		end
+	end
+
+	return neighbourhood
+end
+
+function generate_random_neighbours(inst::Instance, sol::Solution, neighbourhood_number::Int64)
 
 	# gerar soluções da forma menos custosa possível
 
     #TODO
+	station::Int64 = 0
+	task::Int64 = 0
+    neighbourhood::Array{Solution, 1} = []
+	j::Int64 = 1
 
-    neighbourood::Array{Solution, 1} = []
+	while(j <= neighbourhood_number)
+		for i::Int64 in 1:inst.number_of_tasks
+			task = rand(1:inst.number_of_tasks)
+			station = get_station_by_task(sol, task)
+			if (length(sol.stations[station][1]) == 1)
+				break
+			else
+				station = 0
+			end
+		end
+		if station == 0
+			return neighbourhood
+		end
 
-
-    # for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
-    for i::Int64 in 1:inst.number_of_tasks
-
-    	station_index::Int64 = 1
-    	added::Bool = false
-
-    	neighbour::Solution = deepcopy(sol)
-
-    	while ((station_index <= length(sol.stations)))
-
-    		task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
-
-    	    if (task_station != station_index)
-
-	    	    added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
-
-	    	    if added
-	    	    	remove_task(inst, neighbour, task_station, inst.ordered_tasks[i])
-	    	    	push!(neighbourood, neighbour)
-	    	    	break
-	    	    end
-
-	    	end
-
-	    	station_index += 1
-
-    	end
-
-    end
-
-    neigh_length::Int64 = length(neighbourood)
-
-    for csgo::Int64 in 1:neighbourood_number
-
-    	for neigh in 1:neigh_length
-
-		    for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
-
-		    	station_index::Int64 = 1
-		    	added::Bool = false
-
-		    	neighbour::Solution = deepcopy(neighbourood[neigh])
-
-		    	while ((station_index <= length(neighbourood[neigh].stations)))
-
-		    		task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
-
-		    	    if (task_station != station_index)
-
-			    	    added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
-
-			    	    if added
-			    	    	remove_task(inst, neighbour, task_station, inst.ordered_tasks[i])
-			    	    	push!(neighbourood, neighbour)
-			    	    	break
-			    	    end
-
-			    	end
-
-			    	station_index += 1
-
-		    	end
-
-		    end
-
-    	end
-
-    end
-
-
-    return neighbourood
-
+	    # for i::Int64 in 1:Int64(ceil(inst.number_of_tasks/2))
+	    for i::Int64 in 1:length(sol.stations)
+	    	added::Bool = false
+	    	neighbour::Solution = deepcopy(sol)
+			if (station != i)
+				added = add_task_station(inst, neighbour, i, task)
+				if added
+					remove_task(inst, neighbour, station, task)
+					push!(neighbourhood, neighbour)
+					break
+				else
+					j -=1
+				end
+			end
+	    end
+		j +=1
+	end
+    return neighbourhood
 end
 
 function shake(inst::Instance, sol::Solution)
@@ -339,9 +425,9 @@ function main()
 
 	# println(get_minor_station(initial_solution))
 
-
-#	neighbourhood::Array{Solution, 1} = generate_neighbours(full_instance, initial_solution, 10)
 	shake_solution = shake(full_instance, greedy_solution)
+
+	neighbourhood::Array{Solution, 1} = neighbours(full_instance, shake_solution, 2)
 	print_solution(shake_solution)
 
 	# for i::Int64 in 1:length(neighbourhood)
@@ -349,7 +435,7 @@ function main()
 	#    print_solution(neighbourhood[i])
 	# end
 
-	#print_solution(local_search(neighbourhood))
+	print_solution(local_search(neighbourhood))
 
 
 	####################################################################
