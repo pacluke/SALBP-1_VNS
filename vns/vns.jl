@@ -8,7 +8,7 @@ include("./data_structure.jl")
 function print_solution(sol::Solution)
 
 	station::Int64 = 0
-    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) time unit(s) of cycle time."), 
+    foreach(x->println("Station $(station+=1) is composed by $(x[1]) and has $(x[2]) time unit(s) of cycle time."),
     	sol.stations)
     print("\n")
     println("The solution has $(length(sol.stations)) stations.")
@@ -22,7 +22,7 @@ function dfs(inst::Instance, task_a::Int64, task_b::Int64)
 		# println("Visiting $i")
 		if inst.adjacency_matrix[task_a, i]
 			if i == task_b
-			    return true	    
+			    return true
 			elseif dfs(inst, i, task_b)
 				return true
 			end
@@ -44,13 +44,13 @@ end
 function verify_task_time(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
 
 	return ((sol.stations[station_index][2] + inst.tasks_time[task]) <= inst.maximum_cicle_time)
-    
+
 end
 
 function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
 
 	if station_index <= length(sol.stations)
-	    
+
 		if verify_task_time(inst, sol, station_index, task)
 
 			for task_b in sol.stations[station_index][1]
@@ -63,17 +63,17 @@ function add_task(inst::Instance, sol::Solution, station_index::Int64, task::Int
 			sol.stations[station_index] = tuple(sol.stations[station_index][1],
 				sol.stations[station_index][2] + inst.tasks_time[task])
 
-			return true 
+			return true
 		end
 
 		return false
 	else
 
 		push!(sol.stations, tuple([task], inst.tasks_time[task]))
-		return true 
+		return true
 	end
 
-	return false    
+	return false
 end
 
 function remove_task(inst::Instance, sol::Solution, station_index::Int64, task::Int64)
@@ -104,7 +104,7 @@ function get_minor_station(sol::Solution)
 	minor_index = 1
 
 	for index::Int64 in 1:length(sol.stations)
-	    
+
 	    if sol.stations[minor_index][2] > sol.stations[index][2]
 	        minor_index = index
 	    end
@@ -112,11 +112,11 @@ function get_minor_station(sol::Solution)
 	end
 
 	return minor_index
-    
+
 end
 
 function simple_initial_solution(inst::Instance)
-    
+
     sol::Solution = Solution([])
 
     for i::Int64 in 1:inst.number_of_tasks
@@ -137,6 +137,31 @@ function greedy_initial_solution(inst::Instance)
 
 	#TODO
 
+	sol::Solution = Solution([])
+
+	check = Array{Bool}(inst.number_of_tasks)
+	sol_index::Int64 = 1
+
+	for k::Int64 in 1:inst.number_of_tasks
+		check[k] = false
+	end
+
+	for i::Int64 in 1:inst.number_of_tasks
+		if check[i] == false
+			push!(sol.stations, tuple([i], inst.tasks_time[i]))
+			check[i] = true
+			for j::Int64 in i+1:inst.number_of_tasks
+				if check[j] == false
+					insert = add_task(inst, sol, sol_index, j)
+					if insert == true
+						check[j] = true
+					end
+				end
+			end
+			sol_index = sol_index +1
+		end
+	end
+	return sol
 end
 
 function generate_neighbours(inst::Instance, sol::Solution, neighbourood_number::Int64)
@@ -159,7 +184,7 @@ function generate_neighbours(inst::Instance, sol::Solution, neighbourood_number:
     	while ((station_index <= length(sol.stations)))
 
     		task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
-    	    
+
     	    if (task_station != station_index)
 
 	    	    added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
@@ -194,7 +219,7 @@ function generate_neighbours(inst::Instance, sol::Solution, neighbourood_number:
 		    	while ((station_index <= length(neighbourood[neigh].stations)))
 
 		    		task_station = get_station_by_task(neighbour, inst.ordered_tasks[i])
-		    	    
+
 		    	    if (task_station != station_index)
 
 			    	    added = add_task(inst, neighbour, station_index, inst.ordered_tasks[i])
@@ -248,7 +273,7 @@ function local_search(solutions::Array{Solution, 1})
     end
 
     return best_solution
-    
+
 end
 
 function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int64, max_iterations::Int64)
@@ -289,6 +314,7 @@ function main()
 
 	initial_solution = simple_initial_solution(full_instance)
 
+	greedy_solution = greedy_initial_solution(full_instance)
 
 	# print_solution(initial_solution)
 
@@ -296,9 +322,10 @@ function main()
 
 	# print_solution(initial_solution)
 
-	# remove_task(full_instance, initial_solution, 1, 1) 
+	# remove_task(full_instance, initial_solution, 1, 1)
 
-	print_solution(initial_solution)
+	#print_solution(initial_solution)
+	print_solution(greedy_solution)
 
 	# println(get_minor_station(initial_solution))
 
@@ -325,9 +352,9 @@ function main()
 	# for i in 1:full_instance.number_of_tasks
 	# 	for j in 1:full_instance.number_of_tasks
 	#    		println("Precedence of ($(i), $(j))$(verify_precedence(full_instance, i, j))")
-	#    	end 
+	#    	end
 	# end
-    
+
 end
 
 main()
