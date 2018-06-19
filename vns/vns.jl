@@ -385,27 +385,22 @@ end
 
 function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int64, max_iterations::Int64)
      tic() # tempo inicial
-
      for i in 1:max_iterations
         k = 1
 
          while k <= max_neighborhoods
 
              x1 = shake(inst, initial_solution)
-
              x2 = local_search(neighbours(inst, x1, k)) # aqui seria o hill climbing
+             # println("Current best:\t$(length(x2.stations)) stations")
              if length(x2.stations) < length(initial_solution.stations)
                  initial_solution = x2
-                 println("Current best:\t$(length(x2.stations)) stations")
              else
                  k += 1
              end
          end
      end
-
-     toc()
-
-     println("Final best:\t$(length(initial_solution.stations)) stations")
+     toc() # tempo final
      return initial_solution
 end
 
@@ -415,33 +410,44 @@ function main()
 
 	filename::String = ARGS[1]
 	cycle_time::Int64 = parse(Int64, ARGS[2])
-	seed::Int64 = parse(Int64, ARGS[3])
-	srand(seed)
+	bks::Int64 = parse(Int64, ARGS[3])
 
 	full_instance::Instance = read_instance_file(filename, cycle_time)
+	greedy_solution::Solution = greedy_initial_solution(full_instance)
 
-	greedy_solution = greedy_initial_solution(full_instance)
+	m_stations::Array{Int64, 1} = []
 
-	# print_solution(greedy_solution)
+	print("\nINSTANCE:\t\t")
+	print_with_color(:magenta, "$filename\n")
+	print("MAXIMUM CYCLE TIME:\t")
+	print_with_color(:magenta, "$cycle_time\n")
+	print("MINIMUM POSSIBLE:\t")
+	print_with_color(:magenta, "$(Int64(round(sum(full_instance.tasks_time)/cycle_time))) stations\n")
+	print("GREEDY RESULT:\t\t")
+	print_with_color(:magenta, "$(length(greedy_solution.stations)) stations\n")
+	print_with_color(:red, "------------------------------------------------\n")
 
-	vns_solution = VNS(full_instance, greedy_solution, 10, 10)
+	for seed::Int64 in 01:50
 
-	# print_solution(vns_solution)
+		srand(seed)
+		print("\nSEED:\t\t\t")
+		print_with_color(:white, "$seed\n")
+		print_with_color(:red, "-----------------------------------\n")
+		vns_solution = VNS(full_instance, greedy_solution, 15, 20)
+		print("VNS RESULT:\t\t")
+		print_with_color(:white, "$(length(vns_solution.stations)) stations\n")
+		print_with_color(:red, "-----------------------------------\n")
+	    push!(m_stations, length(vns_solution.stations))
 
-	####################################################################
+	end
 
-	# for i in 1:full_instance.number_of_tasks
-	# 	for j in 1:full_instance.number_of_tasks
-	# 		println("($i -> $j) is $(verify_precedence(full_instance, i, j))")
-	# 		verify_precedence(full_instance, i, j)
-	# 	end
-	# end
+	avg_stations::Float64 = sum(m_stations)/50
 
-	# for i in 1:full_instance.number_of_tasks
-	# 	for j in 1:full_instance.number_of_tasks
-	#    		println("Precedence of ($(i), $(j))$(verify_precedence(full_instance, i, j))")
-	#    	end
-	# end
+	print("AVERAGE STATIONS:\t")
+	print_with_color(:magenta, "$(avg_stations) stations\n")
+	print("GAP:\t\t\t")
+	print_with_color(:magenta, "$(100*((avg_stations - bks)/(bks)))%\n")
+	print_with_color(:red, "*********************************************************\n\n\n\n\n")
 
 end
 
