@@ -1,0 +1,1145 @@
+INSTANCE:		MERTENS.IN2
+MAXIMUM CYCLE TIME:	6
+MINIMUM POSSIBLE:	5 stations
+GREEDY RESULT:		6 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 0.112324031 seconds
+
+SEED: 2 elapsed time: 0.039571943 seconds
+
+SEED: 3 elapsed time: 0.104750919 seconds
+
+SEED: 4 elapsed time: 0.030111788 seconds
+
+SEED: 5 elapsed time: 0.098943874 seconds
+
+SEED: 6 elapsed time: 0.027751873 seconds
+
+SEED: 7 elapsed time: 0.027156077 seconds
+
+SEED: 8 elapsed time: 0.10865167 seconds
+
+SEED: 9 elapsed time: 0.031951537 seconds
+
+SEED: 10 elapsed time: 0.098419515 seconds
+
+SEED: 11 elapsed time: 0.029562321 seconds
+
+SEED: 12 elapsed time: 0.034061568 seconds
+
+SEED: 13 elapsed time: 0.026498281 seconds
+
+SEED: 14 elapsed time: 0.031675844 seconds
+
+SEED: 15 elapsed time: 0.029368959 seconds
+
+SEED: 16 elapsed time: 0.029518531 seconds
+
+SEED: 17 elapsed time: 0.029400508 seconds
+
+SEED: 18 elapsed time: 0.03306544 seconds
+
+SEED: 19 elapsed time: 0.029559308 seconds
+
+SEED: 20 elapsed time: 0.032324553 seconds
+
+SEED: 21 elapsed time: 0.028323525 seconds
+
+SEED: 22 elapsed time: 0.036145619 seconds
+
+SEED: 23 elapsed time: 0.032271364 seconds
+
+SEED: 24 elapsed time: 0.029184354 seconds
+
+SEED: 25 elapsed time: 0.030673161 seconds
+
+SEED: 26 elapsed time: 0.030646516 seconds
+
+SEED: 27 elapsed time: 0.031443568 seconds
+
+SEED: 28 elapsed time: 0.029437788 seconds
+
+SEED: 29 elapsed time: 0.031194547 seconds
+
+SEED: 30 elapsed time: 0.02876642 seconds
+
+SEED: 31 elapsed time: 0.034469621 seconds
+
+SEED: 32 elapsed time: 0.026968009 seconds
+
+SEED: 33 elapsed time: 0.034871247 seconds
+
+SEED: 34 elapsed time: 0.027928387 seconds
+
+SEED: 35 elapsed time: 0.033631221 seconds
+
+SEED: 36 elapsed time: 0.028835397 seconds
+
+SEED: 37 elapsed time: 0.032277693 seconds
+
+SEED: 38 elapsed time: 0.027621502 seconds
+
+SEED: 39 elapsed time: 0.03341113 seconds
+
+SEED: 40 elapsed time: 0.031050842 seconds
+
+SEED: 41 elapsed time: 0.038738945 seconds
+
+SEED: 42 elapsed time: 0.028187216 seconds
+
+SEED: 43 elapsed time: 0.033136543 seconds
+
+SEED: 44 elapsed time: 0.033523417 seconds
+
+SEED: 45 elapsed time: 0.034980773 seconds
+
+SEED: 46 elapsed time: 0.030119218 seconds
+
+SEED: 47 elapsed time: 0.034895428 seconds
+
+SEED: 48 elapsed time: 0.02712461 seconds
+
+SEED: 49 elapsed time: 0.035893011 seconds
+
+SEED: 50 elapsed time: 0.029926839 seconds
+BEST VALUE:		6 stations
+WORST VALUE:		6 stations
+AVERAGE STATIONS:	6.0 stations
+GAP:			0.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		MERTENS.IN2
+MAXIMUM CYCLE TIME:	15
+MINIMUM POSSIBLE:	2 stations
+GREEDY RESULT:		3 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 0.106924168 seconds
+
+SEED: 2 elapsed time: 0.032513654 seconds
+
+SEED: 3 elapsed time: 0.104030675 seconds
+
+SEED: 4 elapsed time: 0.024468928 seconds
+
+SEED: 5 elapsed time: 0.022740416 seconds
+
+SEED: 6 elapsed time: 0.100461869 seconds
+
+SEED: 7 elapsed time: 0.022685418 seconds
+
+SEED: 8 elapsed time: 0.109171861 seconds
+
+SEED: 9 elapsed time: 0.023603229 seconds
+
+SEED: 10 elapsed time: 0.025061588 seconds
+
+SEED: 11 elapsed time: 0.088282825 seconds
+
+SEED: 12 elapsed time: 0.022494407 seconds
+
+SEED: 13 elapsed time: 0.025362251 seconds
+
+SEED: 14 elapsed time: 0.024420217 seconds
+
+SEED: 15 elapsed time: 0.023771954 seconds
+
+SEED: 16 elapsed time: 0.025223793 seconds
+
+SEED: 17 elapsed time: 0.024293687 seconds
+
+SEED: 18 elapsed time: 0.02225 seconds
+
+SEED: 19 elapsed time: 0.021238615 seconds
+
+SEED: 20 elapsed time: 0.024576311 seconds
+
+SEED: 21 elapsed time: 0.02583725 seconds
+
+SEED: 22 elapsed time: 0.020422467 seconds
+
+SEED: 23 elapsed time: 0.025169155 seconds
+
+SEED: 24 elapsed time: 0.021396174 seconds
+
+SEED: 25 elapsed time: 0.02750194 seconds
+
+SEED: 26 elapsed time: 0.024192769 seconds
+
+SEED: 27 elapsed time: 0.028357615 seconds
+
+SEED: 28 elapsed time: 0.025344281 seconds
+
+SEED: 29 elapsed time: 0.034554435 seconds
+
+SEED: 30 elapsed time: 0.025052199 seconds
+
+SEED: 31 elapsed time: 0.02302474 seconds
+
+SEED: 32 elapsed time: 0.023719704 seconds
+
+SEED: 33 elapsed time: 0.024483344 seconds
+
+SEED: 34 elapsed time: 0.025052218 seconds
+
+SEED: 35 elapsed time: 0.02370364 seconds
+
+SEED: 36 elapsed time: 0.024195601 seconds
+
+SEED: 37 elapsed time: 0.026350688 seconds
+
+SEED: 38 elapsed time: 0.020302673 seconds
+
+SEED: 39 elapsed time: 0.024860137 seconds
+
+SEED: 40 elapsed time: 0.021410225 seconds
+
+SEED: 41 elapsed time: 0.025842781 seconds
+
+SEED: 42 elapsed time: 0.022322169 seconds
+
+SEED: 43 elapsed time: 0.023896597 seconds
+
+SEED: 44 elapsed time: 0.020837712 seconds
+
+SEED: 45 elapsed time: 0.023385655 seconds
+
+SEED: 46 elapsed time: 0.029417582 seconds
+
+SEED: 47 elapsed time: 0.026383666 seconds
+
+SEED: 48 elapsed time: 0.021254307 seconds
+
+SEED: 49 elapsed time: 0.022371718 seconds
+
+SEED: 50 elapsed time: 0.027577674 seconds
+BEST VALUE:		2 stations
+WORST VALUE:		2 stations
+AVERAGE STATIONS:	2.0 stations
+GAP:			0.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		MERTENS.IN2
+MAXIMUM CYCLE TIME:	18
+MINIMUM POSSIBLE:	2 stations
+GREEDY RESULT:		3 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 0.106694719 seconds
+
+SEED: 2 elapsed time: 0.035909616 seconds
+
+SEED: 3 elapsed time: 0.107397675 seconds
+
+SEED: 4 elapsed time: 0.023835596 seconds
+
+SEED: 5 elapsed time: 0.101532126 seconds
+
+SEED: 6 elapsed time: 0.022541419 seconds
+
+SEED: 7 elapsed time: 0.023828709 seconds
+
+SEED: 8 elapsed time: 0.109912567 seconds
+
+SEED: 9 elapsed time: 0.028793772 seconds
+
+SEED: 10 elapsed time: 0.094773056 seconds
+
+SEED: 11 elapsed time: 0.0228495 seconds
+
+SEED: 12 elapsed time: 0.026279963 seconds
+
+SEED: 13 elapsed time: 0.023010084 seconds
+
+SEED: 14 elapsed time: 0.030936868 seconds
+
+SEED: 15 elapsed time: 0.023162062 seconds
+
+SEED: 16 elapsed time: 0.029019634 seconds
+
+SEED: 17 elapsed time: 0.019931036 seconds
+
+SEED: 18 elapsed time: 0.023001226 seconds
+
+SEED: 19 elapsed time: 0.02583549 seconds
+
+SEED: 20 elapsed time: 0.0264714 seconds
+
+SEED: 21 elapsed time: 0.024076825 seconds
+
+SEED: 22 elapsed time: 0.025993615 seconds
+
+SEED: 23 elapsed time: 0.024258531 seconds
+
+SEED: 24 elapsed time: 0.026146588 seconds
+
+SEED: 25 elapsed time: 0.025056876 seconds
+
+SEED: 26 elapsed time: 0.026710068 seconds
+
+SEED: 27 elapsed time: 0.02234526 seconds
+
+SEED: 28 elapsed time: 0.023280801 seconds
+
+SEED: 29 elapsed time: 0.022169532 seconds
+
+SEED: 30 elapsed time: 0.026375713 seconds
+
+SEED: 31 elapsed time: 0.024544229 seconds
+
+SEED: 32 elapsed time: 0.029722027 seconds
+
+SEED: 33 elapsed time: 0.01974181 seconds
+
+SEED: 34 elapsed time: 0.025176382 seconds
+
+SEED: 35 elapsed time: 0.025421027 seconds
+
+SEED: 36 elapsed time: 0.026618867 seconds
+
+SEED: 37 elapsed time: 0.021982939 seconds
+
+SEED: 38 elapsed time: 0.022459228 seconds
+
+SEED: 39 elapsed time: 0.026683214 seconds
+
+SEED: 40 elapsed time: 0.02413439 seconds
+
+SEED: 41 elapsed time: 0.023860153 seconds
+
+SEED: 42 elapsed time: 0.024171227 seconds
+
+SEED: 43 elapsed time: 0.025089898 seconds
+
+SEED: 44 elapsed time: 0.026364625 seconds
+
+SEED: 45 elapsed time: 0.022362824 seconds
+
+SEED: 46 elapsed time: 0.026699113 seconds
+
+SEED: 47 elapsed time: 0.024428993 seconds
+
+SEED: 48 elapsed time: 0.027291153 seconds
+
+SEED: 49 elapsed time: 0.021363702 seconds
+
+SEED: 50 elapsed time: 0.02858178 seconds
+BEST VALUE:		2 stations
+WORST VALUE:		2 stations
+AVERAGE STATIONS:	2.0 stations
+GAP:			0.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		MITCHELL.IN2
+MAXIMUM CYCLE TIME:	14
+MINIMUM POSSIBLE:	8 stations
+GREEDY RESULT:		9 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 0.813222704 seconds
+
+SEED: 2 elapsed time: 0.514376394 seconds
+
+SEED: 3 elapsed time: 0.393493293 seconds
+
+SEED: 4 elapsed time: 0.381584674 seconds
+
+SEED: 5 elapsed time: 0.363716815 seconds
+
+SEED: 6 elapsed time: 0.363870054 seconds
+
+SEED: 7 elapsed time: 0.371474928 seconds
+
+SEED: 8 elapsed time: 0.373016434 seconds
+
+SEED: 9 elapsed time: 0.355999881 seconds
+
+SEED: 10 elapsed time: 0.406370823 seconds
+
+SEED: 11 elapsed time: 0.407195708 seconds
+
+SEED: 12 elapsed time: 0.375889349 seconds
+
+SEED: 13 elapsed time: 0.354257027 seconds
+
+SEED: 14 elapsed time: 0.362020614 seconds
+
+SEED: 15 elapsed time: 0.339734694 seconds
+
+SEED: 16 elapsed time: 0.377332832 seconds
+
+SEED: 17 elapsed time: 0.377937273 seconds
+
+SEED: 18 elapsed time: 0.377556065 seconds
+
+SEED: 19 elapsed time: 0.381103779 seconds
+
+SEED: 20 elapsed time: 0.406252902 seconds
+
+SEED: 21 elapsed time: 0.398325791 seconds
+
+SEED: 22 elapsed time: 0.376417717 seconds
+
+SEED: 23 elapsed time: 0.367608728 seconds
+
+SEED: 24 elapsed time: 0.442593469 seconds
+
+SEED: 25 elapsed time: 0.445500238 seconds
+
+SEED: 26 elapsed time: 0.428802403 seconds
+
+SEED: 27 elapsed time: 0.42154998 seconds
+
+SEED: 28 elapsed time: 0.45067166 seconds
+
+SEED: 29 elapsed time: 0.394457019 seconds
+
+SEED: 30 elapsed time: 0.367367463 seconds
+
+SEED: 31 elapsed time: 0.38240456 seconds
+
+SEED: 32 elapsed time: 0.373626962 seconds
+
+SEED: 33 elapsed time: 0.38486663 seconds
+
+SEED: 34 elapsed time: 0.350085659 seconds
+
+SEED: 35 elapsed time: 0.420626346 seconds
+
+SEED: 36 elapsed time: 0.38079933 seconds
+
+SEED: 37 elapsed time: 0.375689254 seconds
+
+SEED: 38 elapsed time: 0.396022843 seconds
+
+SEED: 39 elapsed time: 0.379674668 seconds
+
+SEED: 40 elapsed time: 0.390536832 seconds
+
+SEED: 41 elapsed time: 0.399924473 seconds
+
+SEED: 42 elapsed time: 0.373397491 seconds
+
+SEED: 43 elapsed time: 0.363000272 seconds
+
+SEED: 44 elapsed time: 0.39469319 seconds
+
+SEED: 45 elapsed time: 0.384251799 seconds
+
+SEED: 46 elapsed time: 0.370366596 seconds
+
+SEED: 47 elapsed time: 0.383886061 seconds
+
+SEED: 48 elapsed time: 0.352512333 seconds
+
+SEED: 49 elapsed time: 0.371564409 seconds
+
+SEED: 50 elapsed time: 0.380813663 seconds
+BEST VALUE:		9 stations
+WORST VALUE:		9 stations
+AVERAGE STATIONS:	9.0 stations
+GAP:			12.5%
+*********************************************************
+
+
+
+
+
+INSTANCE:		MITCHELL.IN2
+MAXIMUM CYCLE TIME:	35
+MINIMUM POSSIBLE:	3 stations
+GREEDY RESULT:		6 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 0.764886541 seconds
+
+SEED: 2 elapsed time: 0.468010259 seconds
+
+SEED: 3 elapsed time: 0.371592041 seconds
+
+SEED: 4 elapsed time: 0.380592444 seconds
+
+SEED: 5 elapsed time: 0.390940301 seconds
+
+SEED: 6 elapsed time: 0.394396352 seconds
+
+SEED: 7 elapsed time: 0.413258404 seconds
+
+SEED: 8 elapsed time: 0.414811312 seconds
+
+SEED: 9 elapsed time: 0.383538016 seconds
+
+SEED: 10 elapsed time: 0.399640722 seconds
+
+SEED: 11 elapsed time: 0.398081752 seconds
+
+SEED: 12 elapsed time: 0.381740276 seconds
+
+SEED: 13 elapsed time: 0.424998986 seconds
+
+SEED: 14 elapsed time: 0.355180821 seconds
+
+SEED: 15 elapsed time: 0.410346434 seconds
+
+SEED: 16 elapsed time: 0.3844939 seconds
+
+SEED: 17 elapsed time: 0.403218185 seconds
+
+SEED: 18 elapsed time: 0.390983617 seconds
+
+SEED: 19 elapsed time: 0.364138699 seconds
+
+SEED: 20 elapsed time: 0.35881779 seconds
+
+SEED: 21 elapsed time: 0.415295425 seconds
+
+SEED: 22 elapsed time: 0.387676429 seconds
+
+SEED: 23 elapsed time: 0.406186386 seconds
+
+SEED: 24 elapsed time: 0.401362276 seconds
+
+SEED: 25 elapsed time: 0.406696407 seconds
+
+SEED: 26 elapsed time: 0.472794206 seconds
+
+SEED: 27 elapsed time: 0.675726865 seconds
+
+SEED: 28 elapsed time: 0.494189751 seconds
+
+SEED: 29 elapsed time: 0.400901864 seconds
+
+SEED: 30 elapsed time: 0.40327103 seconds
+
+SEED: 31 elapsed time: 0.414192301 seconds
+
+SEED: 32 elapsed time: 0.378899587 seconds
+
+SEED: 33 elapsed time: 0.423671842 seconds
+
+SEED: 34 elapsed time: 0.388357532 seconds
+
+SEED: 35 elapsed time: 0.390643482 seconds
+
+SEED: 36 elapsed time: 0.40526612 seconds
+
+SEED: 37 elapsed time: 0.406603385 seconds
+
+SEED: 38 elapsed time: 0.365919647 seconds
+
+SEED: 39 elapsed time: 0.398493715 seconds
+
+SEED: 40 elapsed time: 0.391133841 seconds
+
+SEED: 41 elapsed time: 0.430076354 seconds
+
+SEED: 42 elapsed time: 0.378742448 seconds
+
+SEED: 43 elapsed time: 0.423308958 seconds
+
+SEED: 44 elapsed time: 0.391584201 seconds
+
+SEED: 45 elapsed time: 0.368855548 seconds
+
+SEED: 46 elapsed time: 0.423123915 seconds
+
+SEED: 47 elapsed time: 0.398436054 seconds
+
+SEED: 48 elapsed time: 0.387052017 seconds
+
+SEED: 49 elapsed time: 0.38607683 seconds
+
+SEED: 50 elapsed time: 0.397310692 seconds
+BEST VALUE:		6 stations
+WORST VALUE:		6 stations
+AVERAGE STATIONS:	6.0 stations
+GAP:			100.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		MITCHELL.IN2
+MAXIMUM CYCLE TIME:	26
+MINIMUM POSSIBLE:	4 stations
+GREEDY RESULT:		6 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 0.71498762 seconds
+
+SEED: 2 elapsed time: 0.459193982 seconds
+
+SEED: 3 elapsed time: 0.365573464 seconds
+
+SEED: 4 elapsed time: 0.402466974 seconds
+
+SEED: 5 elapsed time: 0.422655624 seconds
+
+SEED: 6 elapsed time: 0.397485064 seconds
+
+SEED: 7 elapsed time: 0.384143529 seconds
+
+SEED: 8 elapsed time: 0.393626178 seconds
+
+SEED: 9 elapsed time: 0.379378894 seconds
+
+SEED: 10 elapsed time: 0.389018718 seconds
+
+SEED: 11 elapsed time: 0.385185412 seconds
+
+SEED: 12 elapsed time: 0.372342552 seconds
+
+SEED: 13 elapsed time: 0.410454944 seconds
+
+SEED: 14 elapsed time: 0.349841422 seconds
+
+SEED: 15 elapsed time: 0.406384252 seconds
+
+SEED: 16 elapsed time: 0.388781398 seconds
+
+SEED: 17 elapsed time: 0.392438102 seconds
+
+SEED: 18 elapsed time: 0.39223104 seconds
+
+SEED: 19 elapsed time: 0.375793722 seconds
+
+SEED: 20 elapsed time: 0.377335092 seconds
+
+SEED: 21 elapsed time: 0.423687844 seconds
+
+SEED: 22 elapsed time: 0.394834459 seconds
+
+SEED: 23 elapsed time: 0.376275557 seconds
+
+SEED: 24 elapsed time: 0.370230136 seconds
+
+SEED: 25 elapsed time: 0.363368252 seconds
+
+SEED: 26 elapsed time: 0.366874874 seconds
+
+SEED: 27 elapsed time: 0.383272994 seconds
+
+SEED: 28 elapsed time: 0.404877527 seconds
+
+SEED: 29 elapsed time: 0.382529706 seconds
+
+SEED: 30 elapsed time: 0.398670633 seconds
+
+SEED: 31 elapsed time: 0.343717044 seconds
+
+SEED: 32 elapsed time: 0.373030563 seconds
+
+SEED: 33 elapsed time: 0.392954097 seconds
+
+SEED: 34 elapsed time: 0.383045004 seconds
+
+SEED: 35 elapsed time: 0.388075856 seconds
+
+SEED: 36 elapsed time: 0.437492346 seconds
+
+SEED: 37 elapsed time: 0.441658068 seconds
+
+SEED: 38 elapsed time: 0.381141165 seconds
+
+SEED: 39 elapsed time: 0.392751282 seconds
+
+SEED: 40 elapsed time: 0.390818483 seconds
+
+SEED: 41 elapsed time: 0.356591238 seconds
+
+SEED: 42 elapsed time: 0.363442273 seconds
+
+SEED: 43 elapsed time: 0.414687571 seconds
+
+SEED: 44 elapsed time: 0.378559762 seconds
+
+SEED: 45 elapsed time: 0.366258127 seconds
+
+SEED: 46 elapsed time: 0.394642538 seconds
+
+SEED: 47 elapsed time: 0.377287583 seconds
+
+SEED: 48 elapsed time: 0.382965785 seconds
+
+SEED: 49 elapsed time: 0.348712876 seconds
+
+SEED: 50 elapsed time: 0.362157988 seconds
+BEST VALUE:		6 stations
+WORST VALUE:		6 stations
+AVERAGE STATIONS:	6.0 stations
+GAP:			20.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		WEE-MAG.IN2
+MAXIMUM CYCLE TIME:	56
+MINIMUM POSSIBLE:	27 stations
+GREEDY RESULT:		31 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 19.038677581 seconds
+
+SEED: 2 elapsed time: 20.975624745 seconds
+
+SEED: 3 elapsed time: 24.550163255 seconds
+
+SEED: 4 elapsed time: 22.749777834 seconds
+
+SEED: 5 elapsed time: 24.86577616 seconds
+
+SEED: 6 elapsed time: 24.295280062 seconds
+
+SEED: 7 elapsed time: 22.503938968 seconds
+
+SEED: 8 elapsed time: 23.91060975 seconds
+
+SEED: 9 elapsed time: 25.603872477 seconds
+
+SEED: 10 elapsed time: 23.739278144 seconds
+
+SEED: 11 elapsed time: 21.856751865 seconds
+
+SEED: 12 elapsed time: 20.954466686 seconds
+
+SEED: 13 elapsed time: 23.394140316 seconds
+
+SEED: 14 elapsed time: 21.353661815 seconds
+
+SEED: 15 elapsed time: 19.693846423 seconds
+
+SEED: 16 elapsed time: 23.341403439 seconds
+
+SEED: 17 elapsed time: 22.573989327 seconds
+
+SEED: 18 elapsed time: 20.983695182 seconds
+
+SEED: 19 elapsed time: 21.12005864 seconds
+
+SEED: 20 elapsed time: 21.925845321 seconds
+
+SEED: 21 elapsed time: 23.227513228 seconds
+
+SEED: 22 elapsed time: 21.384505312 seconds
+
+SEED: 23 elapsed time: 19.960717952 seconds
+
+SEED: 24 elapsed time: 23.450379248 seconds
+
+SEED: 25 elapsed time: 23.108157771 seconds
+
+SEED: 26 elapsed time: 22.03623346 seconds
+
+SEED: 27 elapsed time: 22.159407012 seconds
+
+SEED: 28 elapsed time: 22.560384153 seconds
+
+SEED: 29 elapsed time: 24.261573268 seconds
+
+SEED: 30 elapsed time: 26.037852409 seconds
+
+SEED: 31 elapsed time: 26.416906662 seconds
+
+SEED: 32 elapsed time: 22.234316285 seconds
+
+SEED: 33 elapsed time: 22.108217936 seconds
+
+SEED: 34 elapsed time: 21.067864107 seconds
+
+SEED: 35 elapsed time: 22.07494355 seconds
+
+SEED: 36 elapsed time: 23.771008561 seconds
+
+SEED: 37 elapsed time: 21.502990559 seconds
+
+SEED: 38 elapsed time: 17.918840198 seconds
+
+SEED: 39 elapsed time: 20.25625775 seconds
+
+SEED: 40 elapsed time: 19.688092581 seconds
+
+SEED: 41 elapsed time: 20.259904982 seconds
+
+SEED: 42 elapsed time: 20.826969287 seconds
+
+SEED: 43 elapsed time: 19.858175215 seconds
+
+SEED: 44 elapsed time: 19.106956095 seconds
+
+SEED: 45 elapsed time: 21.315035621 seconds
+
+SEED: 46 elapsed time: 18.883170248 seconds
+
+SEED: 47 elapsed time: 20.145058201 seconds
+
+SEED: 48 elapsed time: 23.556599697 seconds
+
+SEED: 49 elapsed time: 21.00796499 seconds
+
+SEED: 50 elapsed time: 22.496684364 seconds
+BEST VALUE:		31 stations
+WORST VALUE:		31 stations
+AVERAGE STATIONS:	31.0 stations
+GAP:			3.3333333333333335%
+*********************************************************
+
+
+
+
+
+INSTANCE:		WEE-MAG.IN2
+MAXIMUM CYCLE TIME:	28
+MINIMUM POSSIBLE:	54 stations
+GREEDY RESULT:		63 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 23.136880882 seconds
+
+SEED: 2 elapsed time: 21.738032469 seconds
+
+SEED: 3 elapsed time: 20.163371359 seconds
+
+SEED: 4 elapsed time: 20.351343542 seconds
+
+SEED: 5 elapsed time: 23.337356672 seconds
+
+SEED: 6 elapsed time: 21.688692573 seconds
+
+SEED: 7 elapsed time: 24.675201259 seconds
+
+SEED: 8 elapsed time: 23.528170514 seconds
+
+SEED: 9 elapsed time: 23.256381169 seconds
+
+SEED: 10 elapsed time: 28.614170705 seconds
+
+SEED: 11 elapsed time: 23.1806699 seconds
+
+SEED: 12 elapsed time: 22.23962028 seconds
+
+SEED: 13 elapsed time: 23.82492642 seconds
+
+SEED: 14 elapsed time: 28.056179697 seconds
+
+SEED: 15 elapsed time: 22.109633151 seconds
+
+SEED: 16 elapsed time: 21.234935938 seconds
+
+SEED: 17 elapsed time: 22.353825324 seconds
+
+SEED: 18 elapsed time: 25.299096493 seconds
+
+SEED: 19 elapsed time: 23.337404053 seconds
+
+SEED: 20 elapsed time: 25.463503493 seconds
+
+SEED: 21 elapsed time: 20.409533543 seconds
+
+SEED: 22 elapsed time: 23.664272218 seconds
+
+SEED: 23 elapsed time: 19.946008923 seconds
+
+SEED: 24 elapsed time: 19.735205901 seconds
+
+SEED: 25 elapsed time: 40.942774584 seconds
+
+SEED: 26 elapsed time: 33.738272979 seconds
+
+SEED: 27 elapsed time: 27.79681941 seconds
+
+SEED: 28 elapsed time: 17.879741075 seconds
+
+SEED: 29 elapsed time: 21.945277813 seconds
+
+SEED: 30 elapsed time: 19.494801741 seconds
+
+SEED: 31 elapsed time: 22.210428163 seconds
+
+SEED: 32 elapsed time: 21.271667293 seconds
+
+SEED: 33 elapsed time: 22.625206042 seconds
+
+SEED: 34 elapsed time: 21.559942223 seconds
+
+SEED: 35 elapsed time: 21.172746701 seconds
+
+SEED: 36 elapsed time: 23.666842104 seconds
+
+SEED: 37 elapsed time: 21.179509366 seconds
+
+SEED: 38 elapsed time: 20.602687195 seconds
+
+SEED: 39 elapsed time: 22.455248137 seconds
+
+SEED: 40 elapsed time: 21.60621619 seconds
+
+SEED: 41 elapsed time: 19.252163159 seconds
+
+SEED: 42 elapsed time: 20.701267252 seconds
+
+SEED: 43 elapsed time: 24.661361322 seconds
+
+SEED: 44 elapsed time: 27.327023406 seconds
+
+SEED: 45 elapsed time: 25.478803837 seconds
+
+SEED: 46 elapsed time: 26.269799523 seconds
+
+SEED: 47 elapsed time: 22.439752492 seconds
+
+SEED: 48 elapsed time: 21.625858305 seconds
+
+SEED: 49 elapsed time: 25.73525052 seconds
+
+SEED: 50 elapsed time: 22.861447811 seconds
+BEST VALUE:		63 stations
+WORST VALUE:		63 stations
+AVERAGE STATIONS:	63.0 stations
+GAP:			0.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		WEE-MAG.IN2
+MAXIMUM CYCLE TIME:	36
+MINIMUM POSSIBLE:	42 stations
+GREEDY RESULT:		60 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 14.25939113 seconds
+
+SEED: 2 elapsed time: 19.451518465 seconds
+
+SEED: 3 elapsed time: 16.341147942 seconds
+
+SEED: 4 elapsed time: 17.071408522 seconds
+
+SEED: 5 elapsed time: 16.575613439 seconds
+
+SEED: 6 elapsed time: 15.619728621 seconds
+
+SEED: 7 elapsed time: 15.934143047 seconds
+
+SEED: 8 elapsed time: 15.811852067 seconds
+
+SEED: 9 elapsed time: 15.686070454 seconds
+
+SEED: 10 elapsed time: 20.127207505 seconds
+
+SEED: 11 elapsed time: 15.555137322 seconds
+
+SEED: 12 elapsed time: 13.490385502 seconds
+
+SEED: 13 elapsed time: 15.73570412 seconds
+
+SEED: 14 elapsed time: 18.834677248 seconds
+
+SEED: 15 elapsed time: 14.611944309 seconds
+
+SEED: 16 elapsed time: 13.919351989 seconds
+
+SEED: 17 elapsed time: 16.373114914 seconds
+
+SEED: 18 elapsed time: 17.512324375 seconds
+
+SEED: 19 elapsed time: 15.369961669 seconds
+
+SEED: 20 elapsed time: 16.641144995 seconds
+
+SEED: 21 elapsed time: 17.902098978 seconds
+
+SEED: 22 elapsed time: 20.740433417 seconds
+
+SEED: 23 elapsed time: 15.236344337 seconds
+
+SEED: 24 elapsed time: 32.213865552 seconds
+
+SEED: 25 elapsed time: 15.013102258 seconds
+
+SEED: 26 elapsed time: 18.594768524 seconds
+
+SEED: 27 elapsed time: 16.146281217 seconds
+
+SEED: 28 elapsed time: 15.602421731 seconds
+
+SEED: 29 elapsed time: 17.302290842 seconds
+
+SEED: 30 elapsed time: 17.263780734 seconds
+
+SEED: 31 elapsed time: 14.006347305 seconds
+
+SEED: 32 elapsed time: 12.175679091 seconds
+
+SEED: 33 elapsed time: 15.470577585 seconds
+
+SEED: 34 elapsed time: 13.121917624 seconds
+
+SEED: 35 elapsed time: 15.493415585 seconds
+
+SEED: 36 elapsed time: 17.286254135 seconds
+
+SEED: 37 elapsed time: 19.312124595 seconds
+
+SEED: 38 elapsed time: 24.883049671 seconds
+
+SEED: 39 elapsed time: 13.867965868 seconds
+
+SEED: 40 elapsed time: 12.157466342 seconds
+
+SEED: 41 elapsed time: 15.793848117 seconds
+
+SEED: 42 elapsed time: 14.436100905 seconds
+
+SEED: 43 elapsed time: 15.587733687 seconds
+
+SEED: 44 elapsed time: 14.280116649 seconds
+
+SEED: 45 elapsed time: 12.653122842 seconds
+
+SEED: 46 elapsed time: 11.981615524 seconds
+
+SEED: 47 elapsed time: 13.435651087 seconds
+
+SEED: 48 elapsed time: 14.640537553 seconds
+
+SEED: 49 elapsed time: 13.057695911 seconds
+
+SEED: 50 elapsed time: 9.825150345 seconds
+BEST VALUE:		60 stations
+WORST VALUE:		60 stations
+AVERAGE STATIONS:	60.0 stations
+GAP:			0.0%
+*********************************************************
+
+
+
+
+
+INSTANCE:		WEE-MAG.IN2
+MAXIMUM CYCLE TIME:	54
+MINIMUM POSSIBLE:	28 stations
+GREEDY RESULT:		31 stations
+------------------------------------------------
+
+SEED: 1 elapsed time: 17.789845545 seconds
+
+SEED: 2 elapsed time: 15.266822997 seconds
+
+SEED: 3 elapsed time: 17.12986494 seconds
+
+SEED: 4 elapsed time: 17.805456599 seconds
+
+SEED: 5 elapsed time: 17.975583445 seconds
+
+SEED: 6 elapsed time: 17.493007904 seconds
+
+SEED: 7 elapsed time: 16.349812945 seconds
+
+SEED: 8 elapsed time: 16.164689413 seconds
+
+SEED: 9 elapsed time: 17.850006767 seconds
+
+SEED: 10 elapsed time: 18.416406409 seconds
+
+SEED: 11 elapsed time: 16.539708258 seconds
+
+SEED: 12 elapsed time: 17.317577908 seconds
+
+SEED: 13 elapsed time: 17.118935833 seconds
+
+SEED: 14 elapsed time: 17.620407408 seconds
+
+SEED: 15 elapsed time: 15.69086275 seconds
+
+SEED: 16 elapsed time: 16.372174097 seconds
+
+SEED: 17 elapsed time: 16.020656584 seconds
+
+SEED: 18 elapsed time: 15.224003496 seconds
+
+SEED: 19 elapsed time: 16.053161075 seconds
+
+SEED: 20 elapsed time: 21.427299791 seconds
+
+SEED: 21 elapsed time: 26.353797716 seconds
+
+SEED: 22 elapsed time: 22.826013146 seconds
+
+SEED: 23 elapsed time: 22.12904339 seconds
+
+SEED: 24 elapsed time: 21.611550835 seconds
+
+SEED: 25 elapsed time: 22.003708344 seconds
+
+SEED: 26 elapsed time: 18.841885649 seconds
+
+SEED: 27 elapsed time: 22.998237922 seconds
+
+SEED: 28 elapsed time: 19.187386368 seconds
+
+SEED: 29 elapsed time: 20.886837979 seconds
+
+SEED: 30 elapsed time: 19.095383391 seconds
+
+SEED: 31 elapsed time: 21.104928754 seconds
+
+SEED: 32 elapsed time: 23.742152267 seconds
+
+SEED: 33 elapsed time: 18.168339967 seconds
+
+SEED: 34 elapsed time: 23.314975537 seconds
+
+SEED: 35 elapsed time: 20.746082514 seconds
+
+SEED: 36 elapsed time: 21.215450227 seconds
+
+SEED: 37 elapsed time: 22.49680886 seconds
+
+SEED: 38 elapsed time: 24.518427884 seconds
+
+SEED: 39 elapsed time: 25.439600248 seconds
+
+SEED: 40 elapsed time: 18.492517584 seconds
+
+SEED: 41 elapsed time: 19.978794642 seconds
+
+SEED: 42 elapsed time: 19.910916222 seconds
+
+SEED: 43 elapsed time: 20.297358013 seconds
+
+SEED: 44 elapsed time: 22.427851297 seconds
+
+SEED: 45 elapsed time: 22.987463304 seconds
+
+SEED: 46 elapsed time: 22.856519087 seconds
+
+SEED: 47 elapsed time: 23.479189745 seconds
+
+SEED: 48 elapsed time: 24.944924087 seconds
+
+SEED: 49 elapsed time: 23.248396966 seconds
+
+SEED: 50 elapsed time: 20.924051008 seconds
+BEST VALUE:		31 stations
+WORST VALUE:		31 stations
+AVERAGE STATIONS:	31.0 stations
+GAP:			0.0%
+*********************************************************

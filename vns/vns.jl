@@ -395,6 +395,7 @@ function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int6
              # println("Current best:\t$(length(x2.stations)) stations")
              if length(x2.stations) < length(initial_solution.stations)
                  initial_solution = x2
+                 k = 1
              else
                  k += 1
              end
@@ -430,18 +431,23 @@ function main()
 	for seed::Int64 in 01:50
 
 		srand(seed)
-		print("\nSEED:\t\t\t")
-		print_with_color(:white, "$seed\n")
-		print_with_color(:red, "-----------------------------------\n")
-		vns_solution = VNS(full_instance, greedy_solution, 15, 20)
-		print("VNS RESULT:\t\t")
-		print_with_color(:white, "$(length(vns_solution.stations)) stations\n")
-		print_with_color(:red, "-----------------------------------\n")
+		print("\nSEED: ")
+		print_with_color(:white, "$seed ")
+		# print_with_color(:red, "-----------------------------------\n")
+		vns_solution = VNS(full_instance, greedy_solution, 5, 25)
+		# print("VNS RESULT:\t\t")
+		# print_with_color(:white, "$(length(vns_solution.stations)) stations\n")
+		# print_with_color(:red, "-----------------------------------\n")
 	    push!(m_stations, length(vns_solution.stations))
 
 	end
 
 	avg_stations::Float64 = sum(m_stations)/50
+
+	print("BEST VALUE:\t\t")
+	print_with_color(:magenta, "$(minimum(m_stations)) stations\n")
+	print("WORST VALUE:\t\t")
+	print_with_color(:magenta, "$(maximum(m_stations)) stations\n")
 
 	print("AVERAGE STATIONS:\t")
 	print_with_color(:magenta, "$(avg_stations) stations\n")
