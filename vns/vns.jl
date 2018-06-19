@@ -298,17 +298,24 @@ function generate_random_neighbours(inst::Instance, sol::Solution, neighbourhood
 	task::Int64 = 0
     neighbourhood::Array{Solution, 1} = []
 	j::Int64 = 1
+	check::Array{Bool, 2} = falses(inst.number_of_tasks, length(sol.stations))
 
 	while(j <= neighbourhood_number)
 		for i::Int64 in 1:inst.number_of_tasks
 			task = rand(1:inst.number_of_tasks)
 			station = get_station_by_task(sol, task)
+			if (check[task, station] == true)
+				station = 0
+				continue
+			end
+			check[task,station] = true
 			if (length(sol.stations[station][1]) == 1)
 				break
 			else
 				station = 0
 			end
 		end
+
 		if station == 0
 			return neighbourhood
 		end
@@ -363,7 +370,6 @@ function local_search(solutions::Array{Solution, 1})
 	# como escolher qual é mais promissora?
 
     #TODO
-
     best_solution::Solution = solutions[1]
 
     for i in 2:length(solutions)
@@ -377,29 +383,27 @@ function local_search(solutions::Array{Solution, 1})
 end
 
 function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int64, max_iterations::Int64)
-    # tic() # tempo inicial
+     tic() # tempo inicial
 
-    # for i in 1:max_iterations
-    #     k = 1
+     for i in 1:max_iterations
+        k = 1
 
-    #     while k <= max_neighborhoods
+         while k <= max_neighborhoods
 
-    #         x1 = shake(inst, initial_solution, k)
+             x1 = shake(inst, initial_solution)
 
-    #         x2 = local_search(generate_neighbours(inst, x1, k)) # aqui seria o hill climbing
+             x2 = local_search(neighbours(inst, x1, k)) # aqui seria o hill climbing
+             if length(x2.stations) < length(initial_solution.stations)
+                 initial_solution = x2
+                 k = 1
+             else
+                 k += 1
+             end
+         end
+     end
 
-    #         if length(x2.stations) < length(initial_solution.stations)
-    #             initial_solution = x2
-    #             k = 1
-    #         else
-
-    #             k += 1
-    #         end
-    #     end
-    # end
-
-    # toc() # tempo final
-    # return initial_solution
+     toc() # tempo final
+     return initial_solution
 end
 
 
@@ -413,36 +417,13 @@ function main()
 
 	full_instance::Instance = read_instance_file(filename, cycle_time)
 
-	initial_solution = simple_initial_solution(full_instance)
-
 	greedy_solution = greedy_initial_solution(full_instance)
 
-
-	# print_solution(initial_solution)
-
-	# println(add_task(full_instance, initial_solution, 1, 2))
-
-	# print_solution(initial_solution)
-
-	# remove_task(full_instance, initial_solution, 1, 1)
-
-	#print_solution(initial_solution)
 	print_solution(greedy_solution)
 
-	# println(get_minor_station(initial_solution))
+	vns_solution = VNS(full_instance, greedy_solution, 5, 5)
 
-	shake_solution = shake(full_instance, greedy_solution)
-
-	neighbourhood::Array{Solution, 1} = neighbours(full_instance, shake_solution, 2)
-	print_solution(shake_solution)
-
-	# for i::Int64 in 1:length(neighbourhood)
-	#    println("..::: Solution $i :::..")
-	#    print_solution(neighbourhood[i])
-	# end
-
-	print_solution(local_search(neighbourhood))
-
+	print_solution(vns_solution)
 
 	####################################################################
 
