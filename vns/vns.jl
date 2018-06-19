@@ -300,19 +300,19 @@ function generate_random_neighbours(inst::Instance, sol::Solution, neighbourhood
 	j::Int64 = 1
 	check::Array{Bool, 2} = falses(inst.number_of_tasks, length(sol.stations))
 
-	while(j <= neighbourhood_number)
+	while j <= neighbourhood_number
 		for i::Int64 in 1:inst.number_of_tasks
 			task = rand(1:inst.number_of_tasks)
 			station = get_station_by_task(sol, task)
 			if (check[task, station] == true)
 				station = 0
-				continue
-			end
-			check[task,station] = true
-			if (length(sol.stations[station][1]) == 1)
-				break
 			else
-				station = 0
+				check[task,station] = true
+				if (length(sol.stations[station][1]) == 1)
+					break
+				else
+					station = 0
+				end
 			end
 		end
 
@@ -330,11 +330,10 @@ function generate_random_neighbours(inst::Instance, sol::Solution, neighbourhood
 					remove_task(inst, neighbour, station, task)
 					push!(neighbourhood, neighbour)
 					break
-				else
-					j -=1
 				end
 			end
 	    end
+
 		j +=1
 	end
     return neighbourhood
@@ -395,7 +394,6 @@ function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int6
              x2 = local_search(neighbours(inst, x1, k)) # aqui seria o hill climbing
              if length(x2.stations) < length(initial_solution.stations)
                  initial_solution = x2
-                 k = 1
              else
                  k += 1
              end
