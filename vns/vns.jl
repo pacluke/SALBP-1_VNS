@@ -345,20 +345,22 @@ function shake(inst::Instance, sol::Solution)
 	# geradora de vizinhos pra colocar dentro
 	station::Int64 = 0
 
-	for j::Int64 in 1:length(sol.stations)
-		station = rand(1:length(sol.stations))
-		if length(sol.stations[station][1]) > 1
+	sol_copy::Solution = deepcopy(sol)
+
+	for j::Int64 in 1:length(sol_copy.stations)
+		station = rand(1:length(sol_copy.stations))
+		if length(sol_copy.stations[station][1]) > 1
 			break
 		end
 	end
 
-	for i::Int64 in 1:length(sol.stations[station][1])
-		removedTask = sol.stations[station][1][1]
-		remove_task(inst, sol, station, removedTask)
-		add_task(inst, sol, length(sol.stations)+1, removedTask)
+	for i::Int64 in 1:length(sol_copy.stations[station][1])
+		removedTask = sol_copy.stations[station][1][1]
+		remove_task(inst, sol_copy, station, removedTask)
+		add_task(inst, sol_copy, length(sol.stations)+1, removedTask)
 	end
 
-    return sol
+    return sol_copy
 
 end
 
@@ -394,13 +396,16 @@ function VNS(inst::Instance, initial_solution::Solution, max_neighborhoods::Int6
              x2 = local_search(neighbours(inst, x1, k)) # aqui seria o hill climbing
              if length(x2.stations) < length(initial_solution.stations)
                  initial_solution = x2
+                 println("Current best:\t$(length(x2.stations)) stations")
              else
                  k += 1
              end
          end
      end
 
-     toc() # tempo final
+     toc()
+
+     println("Final best:\t$(length(initial_solution.stations)) stations")
      return initial_solution
 end
 
@@ -417,11 +422,11 @@ function main()
 
 	greedy_solution = greedy_initial_solution(full_instance)
 
-	print_solution(greedy_solution)
+	# print_solution(greedy_solution)
 
-	vns_solution = VNS(full_instance, greedy_solution, 5, 5)
+	vns_solution = VNS(full_instance, greedy_solution, 10, 10)
 
-	print_solution(vns_solution)
+	# print_solution(vns_solution)
 
 	####################################################################
 
